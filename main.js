@@ -59,15 +59,14 @@
     const d = new FormData(form);
     const body = [
       `Name: ${d.get('name')}`,
-      `Unternehmen: ${d.get('firma') || '–'}`,
-      `E-Mail: ${d.get('email')}`,
-      `Leistung: ${d.get('leistung')}`,
+      `Company: ${d.get('firma') || '–'}`,
+      `Email: ${d.get('email')}`,
       '',
       d.get('nachricht') || '',
     ].join('\n');
-    const subject = `Projektanfrage – ${d.get('firma') || d.get('name')}`;
+    const subject = `Portfolio contact – ${d.get('firma') || d.get('name')}`;
     window.location.href = `mailto:${form.dataset.to}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    button.textContent = 'Danke – wir melden uns';
+    button.textContent = 'Thanks – I’ll get back to you';
   });
 })();
 
